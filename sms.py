@@ -1,8 +1,8 @@
 import tkinter as tk
+import time
 # import datetime
 import re
 from tkinter.scrolledtext import ScrolledText
-
 
 class MainWindow:
     def __init__(self, root):
@@ -32,8 +32,11 @@ class MainWindow:
         self.give_new_message()
 
     def validate_message(self):
+        path = 'sms_' + time.strftime("%Y-%m-%d_%I_%M_%S") + '.txt'
+        with open('sms_valides/' + path, 'w') as txt_file:
+            txt_file.write(self.label1.get(1.0, tk.END))
         self.clear_message()
-        self.give_new_message()
+
 
     def give_new_message(self):
         if self.label1.compare("end-1c", "==", "1.0"):
@@ -43,17 +46,9 @@ class MainWindow:
                     self.current_message = re.split(r"<br>", line)[1]
                     self.label1.insert(tk.INSERT, self.current_message)
 
-    # def update_new_message(self):
-    #     temps_debut = datetime.datetime.now()
-    #     time = datetime.timedelta(seconds=30)
-    #     temps_fin = temps_debut + time
-    #     while datetime.datetime.now() < temps_fin:
-    #         pass
-    #     if self.label1.compare("end-1c", "==", "1.0"):
-    #         print("the widget is empty")
-    #         self.give_new_message()
-    #     else:
-    #         self.update_new_message()
+    def updater(self):
+        self.give_new_message()
+        self.root.after(5000, self.updater)
 
 
 if __name__ == '__main__':
