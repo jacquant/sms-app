@@ -2,6 +2,7 @@ import tkinter as tk
 import time
 # import datetime
 import re
+import tkinter.messagebox
 from tkinter.scrolledtext import ScrolledText
 
 class MainWindow:
@@ -18,7 +19,7 @@ class MainWindow:
         self.ButtonMessageupdade.grid(column=2, row=1, sticky='NSEW')
         self.current_message = ""
         self.give_new_message()
-        # self.update_new_message()
+        self.updater()
 
     def clear_message(self):
         self.label1.delete(1.0, tk.END)
@@ -51,7 +52,12 @@ class MainWindow:
         self.root.after(5000, self.updater)
 
 
+def on_closing():
+    if tkinter.messagebox.askokcancel("Quitter l'application", "Voulez-vous vraiment fermer l'application?"):
+        root.destroy()
+
 if __name__ == '__main__':
     root = tk.Tk()
     MainWindow(root)
+    root.protocol('WM_DELETE_WINDOW', on_closing)
     root.mainloop()

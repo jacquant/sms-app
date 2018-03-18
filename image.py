@@ -1,6 +1,7 @@
 import tkinter as tk
 import os
 import shutil
+import tkinter.messagebox
 from PIL import Image, ImageTk
 
 dirimage = "/home/jacquant/PycharmProjects/sms/images_a_valider"
@@ -72,20 +73,14 @@ class MainWindow:
         self.give_new_image()
         self.root.after(10000, self.updater)
 
-    # def update_new_message(self):
-    #     temps_debut = datetime.datetime.now()
-    #     time = datetime.timedelta(seconds=30)
-    #     temps_fin = temps_debut + time
-    #     while datetime.datetime.now() < temps_fin:
-    #         pass
-    #     if self.label1.compare("end-1c", "==", "1.0"):
-    #         print("the widget is empty")
-    #         self.give_new_message()
-    #     else:
-    #         self.update_new_message()
+
+def on_closing():
+    if tkinter.messagebox.askokcancel("Quitter l'application", "Voulez-vous vraiment fermer l'application?"):
+        root.destroy()
 
 
 if __name__ == '__main__':
     root = tk.Tk()
     MainWindow(root)
+    root.protocol('WM_DELETE_WINDOW', on_closing)
     root.mainloop()
