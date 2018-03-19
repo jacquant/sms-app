@@ -1,0 +1,117 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+section {
+    flex: 1;
+    background-image: url("../img/photoTest.png");
+    background-size: 100%;
+}
+
+#messages {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+#messages > div {
+    margin-bottom: 10px;
+}
+
+#messages div:last-child {
+    margin-bottom: 0;
+}
+
+.greenMessage {
+    border: 10px solid transparent;
+    border-image: url("../img/greenMessage.png") 50 / 10px / 0 repeat;
+}
+
+.grayMessage {
+    border: 10px solid transparent;
+    border-image: url("../img/grayMessage.png") 50 / 10px / 0 repeat;
+}
+
+.greenMessage p {
+    background-color: #95d648;
+    margin: 0;
+    color: #fff;
+    text-align: right;
+}
+
+.grayMessage p {
+    background-color: #d0d0d0;
+    margin: 0;
+    color: #000;
+}
+
+footer {
+    padding: 20px 40px 20px 40px;
+    background-color: #282d32;
+}
+
+footer > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+footer .middle_part {
+    flex: 1;
+}
+
+footer > div > div {
+    margin-right: 40px;
+}
+
+footer > div div:last-child {
+    margin-right: 0;
+}
+
+p {
+    margin: 0;
+    color: #a0a7ad;
+}
+
+footer .title {
+    color: #f0f9ff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer img {
+    width: 75px;
+    height: 75px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer .c-img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin: 0 10px 0 10px;
+}
+
+footer .c-img-b {
+    background-color: #000000;
+}

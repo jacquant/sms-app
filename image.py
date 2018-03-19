@@ -5,7 +5,7 @@ import tkinter.messagebox
 from PIL import Image, ImageTk
 
 dirimage = "/home/jacquant/PycharmProjects/sms/images_a_valider"
-dirimage_val = "/home/jacquant/PycharmProjects/sms/images_valides"
+dirimage_val = "/home/jacquant/PycharmProjects/sms/assets/images_valides"
 dirimage_non_val = "/home/jacquant/PycharmProjects/sms/images_non_validees"
 
 
