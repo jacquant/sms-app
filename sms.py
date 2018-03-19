@@ -1,5 +1,6 @@
 import tkinter as tk
 import time
+import json
 # import datetime
 import re
 import tkinter.messagebox
@@ -33,9 +34,9 @@ class MainWindow:
         self.give_new_message()
 
     def validate_message(self):
-        path = 'sms_' + time.strftime("%Y-%m-%d_%I_%M_%S") + '.txt'
-        with open('sms_valides/' + path, 'w') as txt_file:
-            txt_file.write(self.label1.get(1.0, tk.END))
+        path = 'sms_' + time.strftime("%Y-%m-%d_%I_%M_%S") + '.json'
+        with open('sms_valides/' + path, 'w') as json_file:
+            json.dump(self.label1.get(1.0, tk.END), json_file)
         self.clear_message()
 
 
